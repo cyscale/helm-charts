@@ -1,0 +1,128 @@
+image:
+  repository: cyscaledev/kubernetes-agent
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: v0.16.0
+
+config:
+  cyscaleAPIBaseURL: https://api.cyscale.com/collect/kubernetes
+  cyscaleAPIKey: ''
+  httpClientTimeout: 5s
+  resourcesToScan:
+    - group: ''
+      version: v1
+      kind: Pod
+    - group: ''
+      version: v1
+      kind: Endpoints
+    - group: ''
+      version: v1
+      kind: Service
+    - group: ''
+      version: v1
+      kind: Namespace
+    - group: ''
+      version: v1
+      kind: Node
+    - group: ''
+      version: v1
+      kind: ServiceAccount
+    - group: ''
+      version: v1
+      kind: ConfigMap
+    - group: apps
+      version: v1
+      kind: Deployment
+    - group: apps
+      version: v1
+      kind: DaemonSet
+    - group: apps
+      version: v1
+      kind: StatefulSet
+    - group: apps
+      version: v1
+      kind: ReplicaSet
+    - group: ''
+      version: v1
+      kind: PersistentVolume
+    - group: ''
+      version: v1
+      kind: PersistentVolumeClaim
+    - group: 'rbac.authorization.k8s.io'
+      version: v1
+      kind: Role
+    - group: 'rbac.authorization.k8s.io'
+      version: v1
+      kind: RoleBinding
+    - group: 'rbac.authorization.k8s.io'
+      version: v1
+      kind: ClusterRole
+    - group: 'rbac.authorization.k8s.io'
+      version: v1
+      kind: ClusterRoleBinding
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      version: v1
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      version: v1
+    - group: 'networking.k8s.io'
+      version: v1
+      kind: NetworkPolicy
+    - group: 'networking.k8s.io'
+      version: v1
+      kind: Ingress
+    - group: 'batch'
+      version: v1
+      kind: Job
+    - group: 'batch'
+      version: v1
+      kind: CronJob
+
+imagePullSecrets: []
+nameOverride: ''
+fullnameOverride: ''
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ''
+
+podAnnotations: {}
+
+podSecurityContext: {}
+# fsGroup: 2000
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+healthCheck:
+  port: 8081
+
+resources:
+  {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+#   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
