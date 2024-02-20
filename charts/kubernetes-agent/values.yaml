@@ -2,10 +2,10 @@ image:
   repository: cyscaledev/kubernetes-agent
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v0.16.0
+  tag: v0.16.1
 
 config:
-  cyscaleAPIBaseURL: https://api.cyscale.com/collect/kubernetes
+  cyscaleAPIBaseURL: https://app.cyscale.com/collect/kubernetes
   cyscaleAPIKey: ''
   httpClientTimeout: 5s
   resourcesToScan:
