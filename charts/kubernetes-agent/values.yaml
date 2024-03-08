@@ -30,6 +30,9 @@ config:
     - group: ''
       version: v1
       kind: ConfigMap
+    - group: ''
+      kind: Secret
+      version: v1
     - group: apps
       version: v1
       kind: Deployment
