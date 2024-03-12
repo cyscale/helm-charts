@@ -78,6 +78,9 @@ config:
     - group: 'batch'
       version: v1
       kind: CronJob
+    - group: storage.k8s.io
+      kind: StorageClass
+      version: v1
 
 imagePullSecrets: []
 nameOverride: ''

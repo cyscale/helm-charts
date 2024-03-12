@@ -7,7 +7,7 @@ rules:
   - apiGroups:
       - "{{ .group }}"
     resources:
-      - "{{ if eq .kind "Endpoints" }}{{ .kind | lower }}{{ else if eq .kind "NetworkPolicy"}}{{ "networkpolicies" }}{{ else if eq .kind "Ingress"}}{{ .kind | lower }}es{{ else }}{{ .kind | lower }}s{{ end }}"
+      - "{{ if eq .kind "Endpoints" }}{{ .kind | lower }}{{ else if eq .kind "NetworkPolicy"}}{{ "networkpolicies" }}{{ else if eq .kind "Ingress"}}{{ .kind | lower }}es{{ else if eq .kind "StorageClass"}}{{ "storageclasses" }}{{ else }}{{ .kind | lower }}s{{ end }}"
     verbs:
       - get
       - list
