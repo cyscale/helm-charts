@@ -3,6 +3,17 @@ entries:
   kubernetes-agent:
   - apiVersion: v2
     appVersion: v0.21.0
+    created: "2024-05-31T12:40:38.773287508Z"
+    description: A Helm chart used to deploy the Cyscale Kubernetes agent.
+    digest: 7ef16ea05174d3550aafcaff2c865ab4598fc8ee5634bd5fbf8ebc808a3c79dc
+    icon: https://media.licdn.com/dms/image/C4D0BAQEonulGiwwtgA/company-logo_200_200/0/1630511856380/cyscale_logo?e=2147483647&v=beta&t=92c83G4PnWeieXQS9VPy7DbbL5vLHqQjQzutDCPqaM8
+    name: kubernetes-agent
+    type: application
+    urls:
+    - https://github.com/cyscale/helm-charts/releases/download/kubernetes-agent-1.1.2/kubernetes-agent-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: v0.21.0
     created: "2024-05-31T12:01:12.259998602Z"
     description: A Helm chart used to deploy the Cyscale Kubernetes agent.
     digest: ce4230690fa77c2a5f7279dbde2e35a56839cad07333d1944c2987dfa2a8ce6b
@@ -111,4 +122,4 @@ entries:
     urls:
     - https://github.com/cyscale/helm-charts/releases/download/kubernetes-agent-0.16.0/kubernetes-agent-0.16.0.tgz
     version: 0.16.0
-generated: "2024-05-31T12:01:12.260036062Z"
+generated: "2024-05-31T12:40:38.77334736Z"
