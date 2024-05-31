@@ -5,7 +5,7 @@ image:
   tag: ''
 
 config:
-  cyscaleAPIBaseURL: https://app.cyscale.com/collect/kubernetes
+  host: https://app.cyscale.com/
   cyscaleAPIKey: ''
   httpClientTimeout: 5s
   resourcesToScan:
