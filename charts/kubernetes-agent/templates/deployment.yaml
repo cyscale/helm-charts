@@ -52,6 +52,8 @@ spec:
             - name: config
               mountPath: "/etc/kubernetes-agent"
               readOnly: true
+            - mountPath: /tmp
+              name: tmp
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -68,3 +70,5 @@ spec:
         - name: config
           secret:
             secretName: {{ include "kubernetes-agent.fullname" . }}
+        - name: tmp
+          emptyDir: {}
