@@ -115,13 +115,14 @@ healthCheck:
   port: 8081
 
 resources:
-  {}
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+    ephemeral-storage: 2Gi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+    ephemeral-storage: 2Gi
 
 nodeSelector: {}
 
