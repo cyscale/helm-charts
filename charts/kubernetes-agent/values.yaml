@@ -8,6 +8,7 @@ config:
   host: https://app.cyscale.com/
   cyscaleAPIKey: ''
   httpClientTimeout: 5s
+  collectSBOMs: false
   resourcesToScan:
     - group: ''
       version: v1
