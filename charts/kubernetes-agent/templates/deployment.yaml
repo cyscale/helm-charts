@@ -54,6 +54,8 @@ spec:
               readOnly: true
             - mountPath: /tmp
               name: tmp
+            - mountPath: /.ecr
+              name: ecr-cache-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -72,3 +74,5 @@ spec:
             secretName: {{ include "kubernetes-agent.fullname" . }}
         - name: tmp
           emptyDir: {}
+        - name: ecr-cache-config
+          emptyDir: { }
