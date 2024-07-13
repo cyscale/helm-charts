@@ -9,6 +9,18 @@ config:
   cyscaleAPIKey: ''
   httpClientTimeout: 5s
   collectSBOMs: false
+  sbom:
+    excludedNamespaces:
+      - kube-system
+      - kube-public
+      - kube-node-lease
+      - kubernetes-dashboard
+      - gatekeeper-system
+      - cert-manager
+      - amazon-cloudwatch
+      - app-routing-system
+      - gke-managed-system
+      - istio-system
   resourcesToScan:
     - group: ''
       version: v1
