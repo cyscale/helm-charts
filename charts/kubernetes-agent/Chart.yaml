@@ -2,7 +2,7 @@ apiVersion: v2
 name: kubernetes-agent
 description: A Helm chart used to deploy the Cyscale Kubernetes agent.
 version: 1.5.1
-appVersion: v0.31.1
+appVersion: v0.30.2
 type: application
 
 icon: https://media.licdn.com/dms/image/C4D0BAQEonulGiwwtgA/company-logo_200_200/0/1630511856380/cyscale_logo?e=2147483647&v=beta&t=92c83G4PnWeieXQS9VPy7DbbL5vLHqQjQzutDCPqaM8
