@@ -3,6 +3,14 @@ kind: ClusterRole
 metadata:
   name: {{ include "kubernetes-agent.fullname" . }}
 rules:
+  - apiGroups:
+      - ""
+    resources:
+      - "events"
+    verbs:
+      - get
+      - list
+      - watch
 {{- range .Values.config.resourcesToScan }}
   - apiGroups:
       - "{{ .group }}"
