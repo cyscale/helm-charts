@@ -1,0 +1,43 @@
+{
+  "branches": ["main"],
+  "ci": true,
+  "debug": false,
+  "dryRun": false,
+  "tagFormat": "kubernetes-agent-${version}",
+  "preset": "angular",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          {
+            "type": "build",
+            "release": "patch"
+          },
+          {
+            "type": "style",
+            "release": "patch"
+          },
+          {
+            "type": "test",
+            "release": "patch"
+          }
+        ]
+      }
+    ],
+    [
+      "semantic-release-helm",
+      {
+        "chartPath": "./charts/kubernetes-agent"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "message": "chore(release): <%= nextRelease.version %> on <%= new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %> [skip ci]",
+        "assets": ["charts/kubernetes-agent/Chart.yaml"]
+      }
+    ]
+  ]
+}

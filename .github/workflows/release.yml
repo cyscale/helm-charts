@@ -6,13 +6,34 @@ on:
       - main
 
 jobs:
-  release:
+  semrel:
+    name: Chart Versioning
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          persist-credentials: false
+      - name: Generate the next version
+        uses: cycjimmy/semantic-release-action@v4
+        id: release
+        with:
+          dry_run: true
+          extra_plugins: |
+            @semantic-release/git
+            semantic-release-helm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: semrel
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
@@ -22,4 +43,4 @@ jobs:
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
         env:
-          CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
