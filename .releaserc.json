@@ -1,5 +1,6 @@
 {
   "branches": ["main"],
+  "repositoryUrl": "https://github.com/cyscale/helm-charts",
   "ci": true,
   "debug": false,
   "dryRun": false,
