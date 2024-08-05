@@ -27,9 +27,11 @@
       }
     ],
     [
-      "semantic-release-helm",
+      "semantic-release-helm3",
       {
-        "chartPath": "./charts/kubernetes-agent"
+        "chartPath": "./charts/kubernetes-agent",
+        "onlyUpdateVersion": true,
+        "crPublish": true
       }
     ],
     [
